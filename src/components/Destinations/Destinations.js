@@ -16,7 +16,7 @@ const Destinations = () => {
 
   return (
     <div className='container'>
-      <div>
+      <div id='places'>
       <h2 className='text-center py-4'>Travel Most Popular   Place In The World</h2>
         <Row xs={1} md={3} className="g-4">
           {

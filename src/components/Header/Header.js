@@ -23,10 +23,10 @@ const Header = () => {
               <Nav>
                 {user.email ?
                   <span className='d-flex'>
-                    <Button onClick={logout} variant="warning">Logout</Button>
+                    <Button className='rounded-pill' onClick={logout} variant="warning">Logout</Button>
                     <h4 className='text-white'>Loged in as: {user.displayName}</h4>
                   </span>: 
-                  <Link to='/login'><Button variant="warning">Login</Button></Link>
+                  <Link to='/login'><Button variant="warning" className='rounded-pill'>Login <i class="fas fa-sign-in-alt"></i></Button></Link>
                 }
               </Nav>
             </Navbar.Collapse>

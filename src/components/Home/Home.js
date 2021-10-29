@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import Destination from '../Destination/Destination';
 import Services from '../Services/Services';
 
@@ -27,9 +27,8 @@ const Home = () => {
           }
         </Row>
       </div>
-      <Link to='/destinations'className='text-decoration-none'>See All Places</Link>
+      <HashLink to='/destinations#places'className='text-decoration-non'><button className='rounded-pill bg-warning'>See All Places</button></HashLink>
 
-      <h3>Home er services seciton</h3>
       <Services></Services>
     </div>
   );
