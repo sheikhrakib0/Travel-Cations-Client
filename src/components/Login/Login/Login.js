@@ -13,12 +13,6 @@ const Login = () => {
   const passRef = useRef();
 
 
-  //email, pass for verification
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-  
-  // setEmail(emailRef.current.value)
-  // console.log(emailRef.current.value)
 //-----------------
   const url = location.state?.from || "/home";
 
@@ -27,7 +21,7 @@ const Login = () => {
     e.preventDefault();
     signInUsingGoogle()
       .then(res => {
-        // console.log(res.user);
+        console.log(res.user);
         setUser(res.user)
         history.push(url)
       })
@@ -56,7 +50,7 @@ const Login = () => {
     <div className='container w-75 mb-4 login-form'>
       <div className="form-signin">
         <form>
-          <img className="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"/>
+          <img className="mb-4" src="https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" alt="" width="100%" height=""/>
           <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
 
           <div className="form-floating">
@@ -74,7 +68,7 @@ const Login = () => {
           </label>
           </div>
           <button onClick={handleLogin} className="w-100 btn btn-lg btn-primary" type ="submit">Sign in</button>
-          <Link to='/register'>Create a new account</Link>
+          <Link className='text-decoration-none' to='/register'>Create a new account</Link>
           <p className="mt-5 mb-3 text-muted">&copy; 2020–2021</p>
           <p className='text-center'>----------Or-----------</p>
           <button onClick={handleGoogleSignIn} className="w-100 btn btn-lg btn-primary" type ="submit">Sign in With Google</button>

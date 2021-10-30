@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -9,25 +10,19 @@ const Footer = () => {
         <footer className="py-5">
           <Row xs={1} md={3}>
             <Col>
-              <h5>Section</h5>
+              <h5>Travel Cations</h5>
               <ul className="nav flex-column">
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Home</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Features</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Pricing</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">FAQs</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">About</a></li>
+                
+                <Link to='/home' className='text-decoration-none text-white'>Home</Link>
+                <Link to='/destinations' className='text-decoration-none text-white'>Destinations</Link>
+                <Link to='/about' className='text-decoration-none text-white'>About Us</Link>
+                <Link to='/gallary' className='text-decoration-none text-white'>Gallary</Link>
               </ul>
             </Col>
 
             <Col>
-              <h5>Section</h5>
-              <ul className="nav flex-column">
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Home</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Features</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Pricing</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">FAQs</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">About</a></li>
-              </ul>
+              <h5>About Agency</h5>
+              <p>The world has become so fast paced that people don’t want to stand by reading a page of information, they would much rather look at a presentation and understand the message. It has come to a point</p>
             </Col>
 
             <Col>
@@ -45,7 +40,11 @@ const Footer = () => {
 
           <div className="d-flex justify-content-between py-4 my-4 border-top">
             <p>&copy; 2021 Company, Inc. All rights reserved.</p>
-            
+            <div>
+              <Link className='px-2'><i className="fab fa-facebook-f"></i></Link>
+              <Link className='px-2'><i className="fab fa-instagram"></i></Link>
+              <Link className='px-2'><i className="fab fa-google-plus-g"></i></Link>
+            </div>
           </div>
         </footer>
       </div>

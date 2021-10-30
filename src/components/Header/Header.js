@@ -1,8 +1,7 @@
 import React from 'react';
-import { Button, Carousel, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Carousel, Container, Dropdown, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
-
 const Header = () => {
   const { user, logout } = useAuth();
   return (
@@ -14,63 +13,79 @@ const Header = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="/home">Home</Nav.Link>
-                <Nav.Link href="/destinations">Destination</Nav.Link>
-                <Nav.Link href="/gallary">Gallary</Nav.Link>
-                <Nav.Link href="/about">About Us</Nav.Link>
+                <Nav.Link as={Link} to="/home">Home</Nav.Link>
+                <Nav.Link as={Link} to="/destinations">Destinations</Nav.Link>
+                <Nav.Link as={Link} to="/gallary">Gallary</Nav.Link>
+                <Nav.Link as={Link} to="/about">About Us</Nav.Link>
 
               </Nav>
               <Nav>
                 {user.email ?
                   <span className='d-flex'>
-                    <Button className='rounded-pill' onClick={logout} variant="warning">Logout</Button>
-                    <h4 className='text-white'>Loged in as: {user.displayName}</h4>
-                  </span>: 
-                  <Link to='/login'><Button variant="warning" className='rounded-pill'>Login <i class="fas fa-sign-in-alt"></i></Button></Link>
+                    
+                    <Dropdown>
+                      <Dropdown.Toggle className='rounded-cicle' variant="warning" id="dropdown-basic">
+                        {user.photoURL?
+                          <img height='30px' className='rounded-circle' src={user.photoURL} alt="" />:<h3>{user.displayName}</h3>}
+                      </Dropdown.Toggle>
+
+                      <Dropdown.Menu className='py-4'>
+                        <Dropdown.Item href="#/action-1">{user.displayName}</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">{user.email}</Dropdown.Item>
+                        <Dropdown.Item href="/dashboard">Dashboard</Dropdown.Item>
+                        <Button className='rounded-pill ms-2' onClick={logout} variant="warning">Logout</Button>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </span> :
+                  <Link to='/login'><Button variant="warning" className='rounded-pill'>Login <i className="fas fa-sign-in-alt"></i></Button></Link>
                 }
               </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
       </div>
+      {/* banner section  */}
       <div>
         <Carousel>
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
+              src="https://images.unsplash.com/photo-1529156349890-84021ffa9107?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1031&q=80"
               alt="First slide"
             />
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h3>Your setisfaction is our moto</h3>
+              <p>We provide the best facilities for your enjoyment. Better facilities better enjoyment.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://images.unsplash.com/photo-1465778893808-9b3d1b443be4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=875&q=80"
+              src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
               alt="Second slide"
             />
 
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3>This summer can be Your best couple tour</h3>
+              <p>Enjoy glorious moment with your partner.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://images.unsplash.com/photo-1598890777032-bde835ba27c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+              src="https://images.unsplash.com/uploads/14134890947503c6effdc/72adf455?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
               alt="Third slide"
             />
 
             <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              <h3>Feel the calmness of the nature</h3>
+              <p>Enjoy a beach view to find peach</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
+      </div>
+      <div>
+
       </div>
     </div>
   );

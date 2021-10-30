@@ -13,8 +13,17 @@ import AuthProvider from './components/Context/AuthProvider';
 import Destinations from './components/Destinations/Destinations';
 import Booking from './components/Booking/Booking';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Dashboard from './components/Dashboard/Dashboard';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [destinations, setDestinations] = useState([]);
+
+  useEffect(() => {
+    fetch('https://floating-forest-93132.herokuapp.com/destinations/')
+      .then(res => res.json())
+      .then(data => setDestinations(data))
+  }, [])
   return (
     <div className="App">
       <AuthProvider>
@@ -22,23 +31,26 @@ function App() {
           <Header></Header>
           <Switch>
             <Route exact path='/'>
-              <Home></Home>
+              <Home destinations={destinations}></Home>
             </Route>
             <Route path='/home'>
-              <Home></Home>
+              <Home destinations={destinations}></Home>
             </Route>
             <Route path='/destinations'>
-              <Destinations></Destinations>
+              <Destinations destinations={destinations}></Destinations>
             </Route>
             <Route path='/gallary'>
               <Gallary></Gallary>
             </Route>
-            <Route path='/about'>
+            <PrivateRoute path='/about'>
               <AboutUs></AboutUs>
-            </Route>
-            <PrivateRoute exact path='/booking/:id'>
-              <Booking></Booking>
             </PrivateRoute>
+            <Route path='/destinations/booking/:userId'>
+              <Booking></Booking>
+            </Route>
+            <Route path='/dashboard'>
+              <Dashboard></Dashboard>
+            </Route>
             <Route path='/login'>
               <Login></Login>
             </Route>

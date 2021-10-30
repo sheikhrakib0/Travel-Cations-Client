@@ -5,7 +5,7 @@ import useAuth from '../../../Hooks/useAuth';
 import './Register.css';
 
 const Register = () => {
-  const nameRef = useRef();
+  // const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -50,16 +50,16 @@ const Register = () => {
     <div className='register-form'>
       <div className='form-signin'>
         <form>
-          <img className="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57" />
+          <img className="mb-4" src="https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=869&q=80" alt="" width="100%" height="" />
           <h1 className="h3 mb-3 fw-normal">Please sign up here</h1>
 
           <div className="form-floating">
             <input type="text" className="form-control" id="floatingInput" />
-            <label for="floatingInput">Full Name</label>
+            <label htmlFor="floatingInput">Full Name</label>
           </div>
           <div className="form-floating">
-            <input ref={emailRef} type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
-            <label for="floatingInput">Email address</label>
+            <input ref={emailRef} type="email" className="form-control" id="floatingInput2" placeholder="name@example.com" />
+            <label htmlFor="floatingInput">Email address</label>
           </div>
           <div className="form-floating">
             <input ref={passwordRef} type="password" className="form-control" id="floatingPassword" placeholder="Password" />

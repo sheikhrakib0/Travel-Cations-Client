@@ -4,18 +4,18 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router';
 
 const Booking = () => {
-  const { id } = useParams();
-  const [orders, setOrders] = useState([]);
+  const { userId } = useParams();
+  const [place, setPlace] = useState([]);
 
-  useEffect(() => {
-    fetch(`http://localhost:3000/booking/${id}`)
-      .then(res => res.json())
-      .then(data => setOrders(data))
-  }, [])
+  useEffect(()=>{
+    fetch(`https://floating-forest-93132.herokuapp.com/destinations/booking/${userId}`)
+    .then(res=>res.json())
+    .then(data=>setPlace(data))
+  },[])
 
   return (
     <div>
-      <h2>Service id {orders.name}</h2>
+      <h2>Service id {place.name}</h2>
     </div>
   );
 };

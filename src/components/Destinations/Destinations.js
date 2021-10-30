@@ -1,18 +1,8 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
 import { Row } from 'react-bootstrap';
 import Destination from '../Destination/Destination';
 
-const Destinations = () => {
-
-  const [destinations, setDestinations] = useState([]);
-
-  useEffect(() => {
-    fetch('./destinations.json')
-      .then(res => res.json())
-      .then(data => setDestinations(data))
-  }, [])
+const Destinations = ({destinations}) => {
 
   return (
     <div className='container'>
@@ -21,7 +11,7 @@ const Destinations = () => {
         <Row xs={1} md={3} className="g-4">
           {
             destinations.map(destination => <Destination
-              key={destinations._id}
+              key={destination.id}
               destination={destination}
             ></Destination>)
           }
