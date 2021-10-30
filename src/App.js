@@ -20,7 +20,7 @@ function App() {
   const [destinations, setDestinations] = useState([]);
 
   useEffect(() => {
-    fetch('https://floating-forest-93132.herokuapp.com/destinations/')
+    fetch('https://floating-forest-93132.herokuapp.com/destinations')
       .then(res => res.json())
       .then(data => setDestinations(data))
   }, [])
