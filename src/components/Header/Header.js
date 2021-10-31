@@ -32,7 +32,7 @@ const Header = () => {
                       <Dropdown.Menu className='py-4'>
                         <Dropdown.Item href="#/action-1">{user.displayName}</Dropdown.Item>
                         <Dropdown.Item href="#/action-2">{user.email}</Dropdown.Item>
-                        <Dropdown.Item href="/dashboard">Dashboard</Dropdown.Item>
+                        <Dropdown.Item href="/dashboard">Manage Booking</Dropdown.Item>
                         <Button className='rounded-pill ms-2' onClick={logout} variant="warning">Logout</Button>
                       </Dropdown.Menu>
                     </Dropdown>

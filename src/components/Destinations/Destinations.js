@@ -11,7 +11,7 @@ const Destinations = ({destinations}) => {
         <Row xs={1} md={3} className="g-4">
           {
             destinations.map(destination => <Destination
-              key={destination.id}
+              key={destination._id}
               destination={destination}
             ></Destination>)
           }

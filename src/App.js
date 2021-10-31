@@ -36,7 +36,7 @@ function App() {
             <Route path='/home'>
               <Home destinations={destinations}></Home>
             </Route>
-            <Route path='/destinations'>
+            <Route exact path='/destinations'>
               <Destinations destinations={destinations}></Destinations>
             </Route>
             <Route path='/gallary'>
@@ -45,7 +45,7 @@ function App() {
             <PrivateRoute path='/about'>
               <AboutUs></AboutUs>
             </PrivateRoute>
-            <Route path='/destinations/booking/:userId'>
+            <Route exact path='/destinations/:userId'>
               <Booking></Booking>
             </Route>
             <Route path='/dashboard'>
