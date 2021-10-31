@@ -43,18 +43,18 @@ function App() {
             <Route path='/gallary'>
               <Gallary></Gallary>
             </Route>
-            <PrivateRoute path='/about'>
+            <Route path='/about'>
               <AboutUs></AboutUs>
-            </PrivateRoute>
-            <Route exact path='/destinations/:userId'>
+            </Route>
+            <PrivateRoute exact path='/destinations/:userId'>
               <Booking></Booking>
-            </Route>
-            <Route path='/dashboard'>
+            </PrivateRoute>
+            <PrivateRoute path='/dashboard'>
               <Dashboard></Dashboard>
-            </Route>
-            <Route path='/booking/update/:id'>
+            </PrivateRoute>
+            <PrivateRoute path='/booking/update/:id'>
               <UpdateBooking></UpdateBooking>
-            </Route>
+            </PrivateRoute>
             <Route path='/login'>
               <Login></Login>
             </Route>

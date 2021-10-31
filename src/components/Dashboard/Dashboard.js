@@ -6,7 +6,7 @@ const Dashboard = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/booking')
+    fetch('https://floating-forest-93132.herokuapp.com/booking')
       .then(res => res.json())
       .then(data => setBookings(data))
   }, [])
@@ -15,7 +15,7 @@ const Dashboard = () => {
   const handleDeleteBooking = (id) => {
     const proceed = window.confirm('Are you sure want to delete ?');
     if (proceed) {
-      fetch(`http://localhost:5000/booking/${id}`, {
+      fetch(`https://floating-forest-93132.herokuapp.com/booking/${id}`, {
         method: 'DELETE'
       })
         .then(res => res.json())
@@ -44,7 +44,7 @@ const Dashboard = () => {
 
     const newPlace = {name, price, picture, description}
 
-    axios.post('http://localhost:5000/destinations', newPlace)
+    axios.post('https://floating-forest-93132.herokuapp.com/destinations', newPlace)
     .then(res=>{
       if(res.data.insertedId){
         alert('place added successfully');
