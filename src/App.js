@@ -15,6 +15,7 @@ import Booking from './components/Booking/Booking';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Dashboard from './components/Dashboard/Dashboard';
 import { useEffect, useState } from 'react';
+import UpdateBooking from './components/UpdateBooking/UpdateBooking';
 
 function App() {
   const [destinations, setDestinations] = useState([]);
@@ -50,6 +51,9 @@ function App() {
             </Route>
             <Route path='/dashboard'>
               <Dashboard></Dashboard>
+            </Route>
+            <Route path='/booking/update/:id'>
+              <UpdateBooking></UpdateBooking>
             </Route>
             <Route path='/login'>
               <Login></Login>

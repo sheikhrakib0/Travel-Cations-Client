@@ -30,12 +30,13 @@ const Booking = () => {
     const email = emailRef.current.value;
     const address = addressRef.current.value;
     const address2 = address2Ref.current.value;
+    const city = cityRef.current.value;
     const state = stateRef.current.value;
     const zip = zipRef.current.value;
     const placeName = place.name;
     const id = place._id;
     const price = place.price;
-    const bookingInfo = { name, price , email, address, address2, state, zip, placeName, id };
+    const bookingInfo = { name, price , email, address, address2, city, state, zip, placeName, id };
     axios.post('http://localhost:5000/booking', bookingInfo)
       .then(res => {
         if (res.data.insertedId) {
@@ -57,7 +58,7 @@ const Booking = () => {
           <p className='py-4'>{place.description}</p>
         </div>
 
-
+        {/* booking form  */}
         <div className='col-sm ps-4 p-2 mt-4 '>
           <h2 className='text-center my-4'>Fill the booking form</h2>
           <form className='bg-warning p-4 rounded' onSubmit={handleSubmit}>

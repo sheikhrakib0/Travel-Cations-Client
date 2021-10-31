@@ -1,7 +1,9 @@
 import React from 'react';
 import { Button, Carousel, Container, Dropdown, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { NavHashLink } from 'react-router-hash-link';
 import useAuth from '../../Hooks/useAuth';
+
 const Header = () => {
   const { user, logout } = useAuth();
   return (
@@ -9,24 +11,25 @@ const Header = () => {
       <div>
         <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand href="/home">Travel Cations</Navbar.Brand>
+            <Navbar.Brand className='fw-bold fs-2' href="/home">TRAVEL CATIONS</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="me-auto">
-                <Nav.Link as={Link} to="/home">Home</Nav.Link>
-                <Nav.Link as={Link} to="/destinations">Destinations</Nav.Link>
-                <Nav.Link as={Link} to="/gallary">Gallary</Nav.Link>
-                <Nav.Link as={Link} to="/about">About Us</Nav.Link>
+              <Nav className="me-auto"        data-target="#sidenav-collapse-main" data-
+                toggle="collapse" >
+                <NavHashLink className='text-decoration-none text-white ps-4 text-uppercase' as={Link} to="/home">Home</NavHashLink>
+                <NavHashLink className='text-decoration-none text-white ps-4 text-uppercase' as={Link} to="/destinations#destinations">Destinations</NavHashLink>
+                <NavHashLink className='text-decoration-none text-white ps-4 text-uppercase' as={Link} to="/gallary#gallary">Gallary</NavHashLink>
+                <NavHashLink className='text-decoration-none text-white ps-4 text-uppercase' as={Link} to="/about">About Us</NavHashLink>
 
               </Nav>
               <Nav>
                 {user.email ?
                   <span className='d-flex'>
-                    
-                    <Dropdown>
+
+                    <Dropdown className='ps-4'>
                       <Dropdown.Toggle className='rounded-cicle' variant="warning" id="dropdown-basic">
-                        {user.photoURL?
-                          <img height='30px' className='rounded-circle' src={user.photoURL} alt="" />:<h3>{user.displayName}</h3>}
+                        {user.photoURL ?
+                          <img height='30px' className='rounded-circle' src={user.photoURL} alt="" /> : <h3>{user.displayName}</h3>}
                       </Dropdown.Toggle>
 
                       <Dropdown.Menu className='py-4'>
