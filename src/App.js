@@ -49,12 +49,12 @@ function App() {
             <PrivateRoute exact path='/destinations/:userId'>
               <Booking></Booking>
             </PrivateRoute>
-            <PrivateRoute path='/dashboard'>
+            <Route path='/dashboard'>
               <Dashboard></Dashboard>
-            </PrivateRoute>
-            <PrivateRoute path='/booking/update/:id'>
+            </Route>
+            <Route path='/booking/update/:id'>
               <UpdateBooking></UpdateBooking>
-            </PrivateRoute>
+            </Route>
             <Route path='/login'>
               <Login></Login>
             </Route>
