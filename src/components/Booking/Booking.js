@@ -37,7 +37,7 @@ const Booking = () => {
     const id = place._id;
     const price = place.price;
     const bookingInfo = { name, price , email, address, address2, city, state, zip, placeName, id };
-    axios.post('http://localhost:5000/booking', bookingInfo)
+    axios.post('https://floating-forest-93132.herokuapp.com/booking', bookingInfo)
       .then(res => {
         if (res.data.insertedId) {
           alert('Booking Added Successfully. Check in Manage Booking to check out')

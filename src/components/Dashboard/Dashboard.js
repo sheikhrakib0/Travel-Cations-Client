@@ -22,7 +22,7 @@ const Dashboard = () => {
         .then(data => {
           if (data.deletedCount > 0) {
             alert('Deleted Successfully');
-            const remainingBooking = bookings.filter(booking => booking._d !== id);
+            const remainingBooking = bookings.filter(booking => booking._id !== id);
             setBookings(remainingBooking);
           }
         })
